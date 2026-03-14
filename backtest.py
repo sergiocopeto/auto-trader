@@ -1,10 +1,7 @@
 import pandas as pd
-from datetime import timedelta
-from enum import Enum
 
-from models import forming_candle
 from models.timeframe import Timeframe
-from strategies.strategy import Strategy
+from implementations.example_strategy import ExampleStrategy
 from strategies.strategy_manager import StrategyManager
 from broker.virtual_broker import VirtualBroker
 from broker.metrics_engine import MetricsEngine
@@ -23,8 +20,8 @@ print(f"Loaded {len(candles)} candles")
 STARTING_CAPITAL = 10_000
 broker = VirtualBroker(starting_capital=STARTING_CAPITAL)
 
-strategy_1 = Strategy(name="Test Strategy1", timeframe=Timeframe.MINUTE_30)
-strategy_2 = Strategy(name="Test Strategy2", timeframe=Timeframe.HOUR_4)
+strategy_1 = ExampleStrategy(name="Test Strategy1", timeframe=Timeframe.MINUTE_30)
+strategy_2 = ExampleStrategy(name="Test Strategy2", timeframe=Timeframe.HOUR_4)
 
 manager = StrategyManager()
 manager.add_strategy(strategy_1)
