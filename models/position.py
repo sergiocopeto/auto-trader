@@ -11,7 +11,11 @@ class Position:
         self.is_open = True
         self.exit_time = None
         self.exit_price = None
-    
+        self.side: str | None = None
+        self.pnl: float | None = None
+        self.exit_reason: str | None = None
+        self.strategy_name: str | None = None
+
     def to_dict(self):
         return {
             "id": str(self.id),
@@ -23,5 +27,9 @@ class Position:
             "entry_time": self.entry_time,
             "exit_time": self.exit_time,
             "exit_price": self.exit_price,
+            "side": self.side,
+            "pnl": self.pnl,
+            "exit_reason": self.exit_reason,
+            "strategy_name": self.strategy_name,
         }
     
